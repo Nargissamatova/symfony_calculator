@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Calculator
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('styles/calculator.css') }}">
+{% endblock %}
+
+
+{% block body %}
+	<h1>Simple Calculator</h1>
+	<form method="post" action="{{ path('calculator') }}">
+		<div>
+			<label for="number1">Number 1:</label>
+			<input type="text" id="number1" name="number1" required>
+		</div>
+		<div>
+			<label for="number2">Number 2:</label>
+			<input type="text" id="number2" name="number2" required>
+		</div>
+		<div>
+			<label for="operation">Operation:</label>
+			<select id="operation" name="operation">
+				<option value="add">Add</option>
+				<option value="subtract">Subtract</option>
+				<option value="multiply">Multiply</option>
+				<option value="divide">Divide</option>
+			</select>
+		</div>
+		<button type="submit">Calculate</button>
+	</form>
+	{% if result is not null %}
+		<h2>Result:
+			{{ result }}</h2>
+	{% endif %}
+{% endblock %}
