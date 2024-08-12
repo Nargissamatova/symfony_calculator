@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class CalculatorController extends AbstractController
 {
-    #[Route('/calculator', name: 'calculator')]
+    #[Route('/', name: 'calculator')]
     public function index(Request $request): Response
     {
         $result = null;
